@@ -143,6 +143,11 @@ export default function Register() {
           <button
             onClick={handleRegister}
             disabled={loading}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleLogin();
+              }
+            }}
             className="mt-4 w-full rounded-md bg-amber-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-amber-500 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? "Creating account..." : "Register"}

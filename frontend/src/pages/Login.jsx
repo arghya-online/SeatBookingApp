@@ -99,6 +99,11 @@ export default function Login() {
             className="mt-4 w-full rounded-md bg-amber-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-amber-500 disabled:cursor-not-allowed disabled:opacity-60"
             onClick={handleLogin}
             disabled={loading}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+              handleLogin();
+              }
+            }}
           >
             {loading ? "Logging in..." : "Login"}
           </button>
