@@ -2,6 +2,8 @@ import pool from "../db/db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+const JWT_SECRET = process.env.JWT_SECRET || "secretkey";
+
 // REGISTER
 export async function registerUser(req, res) {
   try {
@@ -77,15 +79,18 @@ export async function loginUser(req, res) {
     }
 
     // create token
-    const token = jwt.sign(
-      { id: user.id, email: user.email },
-      "secretkey", // later we move to .env
-      { expiresIn: "1h" },
-    );
+    const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     return res.json({
       message: "Login successful",
       token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      },
     });
   } catch (err) {
     console.log(err);

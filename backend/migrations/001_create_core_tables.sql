@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS movies (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(160) NOT NULL UNIQUE,
+  rating NUMERIC(3, 1) NOT NULL,
+  image_url TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS movie_seats (
+  id SERIAL PRIMARY KEY,
+  movie_id INTEGER NOT NULL REFERENCES movies(id) ON DELETE CASCADE,
+  seat_number INTEGER NOT NULL,
+  is_booked BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  UNIQUE (movie_id, seat_number)
+);
+
+CREATE TABLE IF NOT EXISTS movie_bookings (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  movie_id INTEGER NOT NULL REFERENCES movies(id) ON DELETE CASCADE,
+  seat_id INTEGER NOT NULL REFERENCES movie_seats(id) ON DELETE CASCADE,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  UNIQUE (movie_id, seat_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_movie_seats_movie_id ON movie_seats(movie_id);
+CREATE INDEX IF NOT EXISTS idx_movie_bookings_user_id ON movie_bookings(user_id);

@@ -13,6 +13,8 @@ next -> pass control
 
 import jwt from "jsonwebtoken";
 
+const JWT_SECRET = process.env.JWT_SECRET || "secretkey";
+
 export function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
 
@@ -27,7 +29,7 @@ export function authMiddleware(req, res, next) {
   }
 
   try {
-    const decoded = jwt.verify(token, "secretkey"); // Use env variable in production
+    const decoded = jwt.verify(token, JWT_SECRET);
     req.user = decoded;
     next(); // Pass control to the next middleware or route handler
   } catch (error) {

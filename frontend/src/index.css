@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+:root {
+  --font-body: "Outfit", sans-serif;
+  --font-display: "Bodoni Moda", serif;
+  --font-poster: "Teko", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-poster {
+  font-family: var(--font-poster);
+  letter-spacing: 0.03em;
+}
