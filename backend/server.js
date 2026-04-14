@@ -27,10 +27,11 @@ app.use(rateLimiter);
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: ["http://localhost:5173", "https://seat-booking-app-xi.vercel.app"],
     credentials: true,
   }),
 );
+
 app.use(express.json()); //backend can read json data from frontend
 app.use(helmet());
 app.use("/api/auth", authRoutes);
