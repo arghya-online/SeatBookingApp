@@ -30,7 +30,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://seat-booking-app-xi.vercel.app",
-      "https://bookyourseat.arghyalogs.in/",
+      "https://bookyourseat.arghyalogs.in",
     ],
     credentials: true,
   }),
