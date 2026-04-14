@@ -354,7 +354,7 @@ export default function Landing() {
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <a
-                  href="https://instagram.com"
+                  href="arghyalogs.in"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -369,7 +369,7 @@ export default function Landing() {
                   </svg>
                 </a>
                 <a
-                  href="https://x.com"
+                  href="https://x.com/arghyabuilds"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="X"
@@ -384,7 +384,7 @@ export default function Landing() {
                   </svg>
                 </a>
                 <a
-                  href="https://youtube.com"
+                  href="https://www.youtube.com/@arghya_explains_"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="YouTube"

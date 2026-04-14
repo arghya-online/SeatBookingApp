@@ -44,7 +44,7 @@ function Navbar() {
             className="text-lg font-semibold tracking-wide text-slate-100"
             style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
           >
-            bookyourseat
+            Book <span className="text-orange-500">Your</span> Seat
           </span>
         </Link>
 
