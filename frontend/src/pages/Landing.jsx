@@ -306,7 +306,7 @@ export default function Landing() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div>
               <p className="font-display text-xl text-slate-100">
-                BookYourShow
+                bookyourseat
               </p>
               <p className="mt-2 max-w-sm text-sm text-slate-400">
                 Smart movie seat booking with quick flow, clear seat status, and
@@ -419,7 +419,7 @@ export default function Landing() {
 
           <div className="mt-8 flex flex-col gap-2 border-t border-slate-800 pt-4 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
             <p>
-              © {new Date().getFullYear()} BookYourShow. All rights reserved.
+              © {new Date().getFullYear()} bookyourseat. All rights reserved.
             </p>
             <p>
               Built for movie lovers. Seat availability updates in real time.
